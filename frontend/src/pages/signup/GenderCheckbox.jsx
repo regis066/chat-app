@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
   return (
     <div className="flex gap-3 mt-2">
