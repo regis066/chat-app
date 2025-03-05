@@ -1,4 +1,3 @@
-import useGetConversations from "../../hooks/useGetConversations";
 import useConversation from "../../zustand/useConversation";
 
 const Conversation = ({ conversation, lastIdx, emoji }) => {
