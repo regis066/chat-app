@@ -1,13 +1,21 @@
+import { useEffect, useRef } from "react";
 import useGetMessages from "../../hooks/useGetMessages";
 import MessageSkeleton from "../skeletons/MessageSkeleton";
 import Message from "./Message";
 
 const Messages = () => {
   const { loading, messages } = useGetMessages();
-  console.log(messages);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const element = containerRef.current;
+    if (element) {
+      element.scrollTop = element.scrollHeight;
+    }
+  }, [messages]);
 
   return (
-    <div className="px-4 flex-1 overflow-auto">
+    <div className="px-4 flex-1 overflow-auto" ref={containerRef}>
       {!loading &&
         messages.length > 0 &&
         messages.map((message) => (
