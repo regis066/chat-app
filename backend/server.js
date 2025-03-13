@@ -1,12 +1,12 @@
-import express from "express";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import express from "express";
+import connectToMongoDB from "./db/connectToMongoDB.js";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
-import connectToMongoDB from "./db/connectToMongoDB.js";
-import cookieParser from "cookie-parser";
+import { app, httpServer } from "./socket/socket.js";
 
-const app = express();
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
@@ -19,6 +19,6 @@ app.use("/api/users", userRoutes);
 
 connectToMongoDB();
 
-app.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
