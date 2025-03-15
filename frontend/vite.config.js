@@ -10,7 +10,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // target: "http://localhost:5000",
-        target: "https://chat-app-server-kappa-one.vercel.app",
+        target: "https://chat-app-yimr.onrender.com",
         changeOrigin: true,
       },
     },

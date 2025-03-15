@@ -15,7 +15,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("https://chat-app-server-kappa-one.vercel.app", {
+      const socket = io("https://chat-app-yimr.onrender.com", {
         query: { userId: authUser._id },
       });
       setSocket(socket);
